@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tunes-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MBTunes" customModule="MBQRScanCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dua_lipa" translatesAutoresizingMaskIntoConstraints="NO" id="Szj-cl-o5W">
+                                <rect key="frame" x="87" y="144" width="240" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="7O0-MW-mCu"/>
+                                    <constraint firstAttribute="height" constant="300" id="qaB-dc-c0Y"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJe-sk-QSC">
+                                <rect key="frame" x="196" y="524" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="ayO-KC-5oc"/>
+                                    <constraint firstAttribute="height" constant="22" id="bNv-Lp-3p1"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="playBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Dn-MH-UsD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQG-Hr-2kN">
+                                <rect key="frame" x="248" y="524" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="YmO-7c-sLx"/>
+                                    <constraint firstAttribute="height" constant="22" id="cQ9-by-rgm"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pauseBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzc-QR-agw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-kq-1sb">
+                                <rect key="frame" x="144" y="524" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="TFK-a9-Ck6"/>
+                                    <constraint firstAttribute="width" constant="22" id="sMY-0U-hRG"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="stopBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qdk-lN-F91"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zQG-Hr-2kN" firstAttribute="leading" secondItem="JJe-sk-QSC" secondAttribute="trailing" constant="30" id="1aU-XE-wUY"/>
+                            <constraint firstItem="Szj-cl-o5W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2FN-90-3NL"/>
+                            <constraint firstItem="eaV-kq-1sb" firstAttribute="centerY" secondItem="JJe-sk-QSC" secondAttribute="centerY" id="7lR-HH-aaF"/>
+                            <constraint firstItem="JJe-sk-QSC" firstAttribute="top" secondItem="Szj-cl-o5W" secondAttribute="bottom" constant="80" id="Klo-TO-m1J"/>
+                            <constraint firstItem="JJe-sk-QSC" firstAttribute="centerX" secondItem="Szj-cl-o5W" secondAttribute="centerX" id="ZVf-5e-brZ"/>
+                            <constraint firstItem="Szj-cl-o5W" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="100" id="i1w-1b-6zJ"/>
+                            <constraint firstItem="JJe-sk-QSC" firstAttribute="leading" secondItem="eaV-kq-1sb" secondAttribute="trailing" constant="30" id="uVo-WT-heA"/>
+                            <constraint firstItem="zQG-Hr-2kN" firstAttribute="centerY" secondItem="JJe-sk-QSC" secondAttribute="centerY" id="wx6-0n-WW1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="pauseBtn" destination="zQG-Hr-2kN" id="jh2-hf-PC5"/>
+                        <outlet property="playBtn" destination="JJe-sk-QSC" id="FkE-tN-ac4"/>
+                        <outlet property="songImage" destination="Szj-cl-o5W" id="RTe-6V-2DK"/>
+                        <outlet property="stopBtn" destination="eaV-kq-1sb" id="5ZT-yR-cAr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="77.678571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dua_lipa" width="640" height="640"/>
+    </resources>
+</document>
