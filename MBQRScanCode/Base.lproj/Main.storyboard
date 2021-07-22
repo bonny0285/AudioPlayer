@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +11,7 @@
         <!--Tunes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MBTunes" customModule="MBQRScanCode" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MBTunes" customModule="MBMusiPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,52 +23,62 @@
                                     <constraint firstAttribute="height" constant="300" id="qaB-dc-c0Y"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJe-sk-QSC">
-                                <rect key="frame" x="196" y="524" width="22" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="ayO-KC-5oc"/>
-                                    <constraint firstAttribute="height" constant="22" id="bNv-Lp-3p1"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="playBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Dn-MH-UsD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQG-Hr-2kN">
-                                <rect key="frame" x="248" y="524" width="22" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="YmO-7c-sLx"/>
-                                    <constraint firstAttribute="height" constant="22" id="cQ9-by-rgm"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="pauseBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzc-QR-agw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-kq-1sb">
-                                <rect key="frame" x="144" y="524" width="22" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="TFK-a9-Ck6"/>
-                                    <constraint firstAttribute="width" constant="22" id="sMY-0U-hRG"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="stopBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qdk-lN-F91"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UoP-Cb-thh">
+                                <rect key="frame" x="124.5" y="524" width="165" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-kq-1sb">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="TFK-a9-Ck6"/>
+                                            <constraint firstAttribute="width" constant="35" id="sMY-0U-hRG"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qdk-lN-F91"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJe-sk-QSC">
+                                        <rect key="frame" x="65" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="ayO-KC-5oc"/>
+                                            <constraint firstAttribute="height" constant="35" id="bNv-Lp-3p1"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Dn-MH-UsD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQG-Hr-2kN">
+                                        <rect key="frame" x="130" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="YmO-7c-sLx"/>
+                                            <constraint firstAttribute="height" constant="35" id="cQ9-by-rgm"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pauseBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gzc-QR-agw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="zQG-Hr-2kN" firstAttribute="leading" secondItem="JJe-sk-QSC" secondAttribute="trailing" constant="30" id="1aU-XE-wUY"/>
-                            <constraint firstItem="Szj-cl-o5W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2FN-90-3NL"/>
-                            <constraint firstItem="eaV-kq-1sb" firstAttribute="centerY" secondItem="JJe-sk-QSC" secondAttribute="centerY" id="7lR-HH-aaF"/>
-                            <constraint firstItem="JJe-sk-QSC" firstAttribute="top" secondItem="Szj-cl-o5W" secondAttribute="bottom" constant="80" id="Klo-TO-m1J"/>
-                            <constraint firstItem="JJe-sk-QSC" firstAttribute="centerX" secondItem="Szj-cl-o5W" secondAttribute="centerX" id="ZVf-5e-brZ"/>
-                            <constraint firstItem="Szj-cl-o5W" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="100" id="i1w-1b-6zJ"/>
-                            <constraint firstItem="JJe-sk-QSC" firstAttribute="leading" secondItem="eaV-kq-1sb" secondAttribute="trailing" constant="30" id="uVo-WT-heA"/>
-                            <constraint firstItem="zQG-Hr-2kN" firstAttribute="centerY" secondItem="JJe-sk-QSC" secondAttribute="centerY" id="wx6-0n-WW1"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Szj-cl-o5W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2FN-90-3NL"/>
+                            <constraint firstItem="UoP-Cb-thh" firstAttribute="top" secondItem="Szj-cl-o5W" secondAttribute="bottom" constant="80" id="WRn-K2-5dc"/>
+                            <constraint firstItem="UoP-Cb-thh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eNb-GO-ryP"/>
+                            <constraint firstItem="Szj-cl-o5W" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="100" id="i1w-1b-6zJ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="pauseBtn" destination="zQG-Hr-2kN" id="jh2-hf-PC5"/>

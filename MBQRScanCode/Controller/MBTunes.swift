@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AVFoundation
+//import AVFoundation
 
 class MBTunes: UIViewController {
     
@@ -20,86 +20,72 @@ class MBTunes: UIViewController {
     
     //MARK: - Properties
     
-    private var songPlayer = AVAudioPlayer()
+    private var viewModel: PlayerViewModel!
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        songImage.image = UIImage(named: "dua_lipa")
-        playBtn.setImage(UIImage(systemName: PLAY), for: .normal)
-        pauseBtn.setImage(UIImage(systemName: PAUSE), for: .normal)
-        stopBtn.setImage(UIImage(systemName: STOP), for: .normal)
-        prepareSong()
+        
+        viewModel = PlayerViewModel()
+        
+        viewModel.onPlayerState = { [weak self] state in
+            guard let self = self else { return }
+            
+            let playImage: String
+            let pauseImage: String
+            let stopImage: String
+            
+            switch state {
+            case .none(let play, let pause, let stop):
+                playImage = play
+                pauseImage = pause
+                stopImage = stop
+                
+            case .play(let play, let pause, let stop):
+                playImage = play
+                pauseImage = pause
+                stopImage = stop
+              
+            case .pause(let play, let pause, let stop):
+                playImage = play
+                pauseImage = pause
+                stopImage = stop
+               
+            case .stop(let play, let pause, let stop):
+                playImage = play
+                pauseImage = pause
+                stopImage = stop
+               
+            }
+            self.setupButtonImageAtState(play: playImage, pause: pauseImage, stop: stopImage)
+        }
+        
+        songImage.image = UIImage(named: viewModel.songImage)
     }
     
     //MARK: - Methods
-    
-    func prepareSong () {
-        do {
-            songPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Don't Start Now", ofType: "mp3")!))
-            songPlayer.prepareToPlay()
-            
-            let audioSession = AVAudioSession.sharedInstance()
-            
-            do {
-                try audioSession.setCategory(AVAudioSession.Category.playback)
-            } catch let sessionError {
-                print(sessionError)
-            }
-            
-        } catch let songPlayError {
-            print(songPlayError)
-        }
-    }
-    
-    func setImageBtn(forFirt image1 : UIImage, image2 : UIImage, button : UIButton) -> Bool {
+
+    private func setupButtonImageAtState(play: String, pause: String, stop: String) {
+        playBtn.setImage(UIImage(systemName: play), for: .normal)
         
-        var check : Bool?
-        if button.currentImage == image1 {
-            button.setImage(image2, for: .normal)
-            check = false
-            return check!
-        } else {
-            button.setImage(image1, for: .normal)
-            check = true
-            return check!
-        }
+        pauseBtn.setImage(UIImage(systemName: pause), for: .normal)
+        
+        stopBtn.setImage(UIImage(systemName: stop), for: .normal)
     }
     
     //MARK: - Actions
     
     @IBAction func playBtnWasPressed(_ sender: Any) {
-        let image = UIImage(systemName: PLAY)
-        let image1 = UIImage(systemName: PLAY_MARK)
-        if !setImageBtn(forFirt: image!, image2: image1!, button: playBtn){
-            pauseBtn.setImage(UIImage(systemName: PAUSE), for: .normal)
-            stopBtn.setImage(UIImage(systemName: STOP), for: .normal)
-            songPlayer.play()
-        }
+        viewModel.play()
     }
     
     @IBAction func pauseBtnWasPressed(_ sender: Any) {
-        
-        let image = UIImage(systemName: PAUSE)
-        let image1 = UIImage(systemName: PAUSE_MARK)
-        if !setImageBtn(forFirt: image!, image2: image1!, button: pauseBtn) {
-            playBtn.setImage(UIImage(systemName: PLAY), for: .normal)
-            stopBtn.setImage(UIImage(systemName: STOP), for: .normal)
-            songPlayer.pause()
-        }
+        viewModel.pause()
     }
     
     @IBAction func stopBtnWasPressed(_ sender: Any) {
-        
-        let image = UIImage(systemName: STOP)
-        let image1 = UIImage(systemName: STOP_MARK)
-        if !setImageBtn(forFirt: image!, image2: image1!, button: stopBtn) {
-            playBtn.setImage(UIImage(systemName: PLAY), for: .normal)
-            pauseBtn.setImage(UIImage(systemName: PAUSE), for: .normal)
-            songPlayer.stop()
-            songPlayer.currentTime = 0
-        }
+        viewModel.stop()
     }
 }
 

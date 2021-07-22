@@ -15,6 +15,7 @@
 		B45A02C123771440009DB593 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B45A02BF23771440009DB593 /* LaunchScreen.storyboard */; };
 		B45A02CE23788E9D009DB593 /* Don't Start Now.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B45A02CD23788E9D009DB593 /* Don't Start Now.mp3 */; };
 		B45A02D0237892EB009DB593 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A02CF237892EB009DB593 /* Constants.swift */; };
+		B4A603B326A975E60029ED4B /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A603B226A975E60029ED4B /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B45A02C223771440009DB593 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B45A02CD23788E9D009DB593 /* Don't Start Now.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Don't Start Now.mp3"; sourceTree = "<group>"; };
 		B45A02CF237892EB009DB593 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B4A603B226A975E60029ED4B /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +62,8 @@
 		B45A02B32377143D009DB593 /* MBQRScanCode */ = {
 			isa = PBXGroup;
 			children = (
+				B4A603B126A9759A0029ED4B /* ViewModel */,
 				B45A02CA2377147E009DB593 /* Model */,
-				B45A02C923771477009DB593 /* View */,
 				B45A02C82377146E009DB593 /* Controller */,
 				B45A02B42377143D009DB593 /* AppDelegate.swift */,
 				B45A02B62377143D009DB593 /* SceneDelegate.swift */,
@@ -82,19 +84,20 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		B45A02C923771477009DB593 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		B45A02CA2377147E009DB593 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B45A02CF237892EB009DB593 /* Constants.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B4A603B126A9759A0029ED4B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4A603B226A975E60029ED4B /* PlayerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B45A02B92377143D009DB593 /* MBTunes.swift in Sources */,
+				B4A603B326A975E60029ED4B /* PlayerViewModel.swift in Sources */,
 				B45A02B52377143D009DB593 /* AppDelegate.swift in Sources */,
 				B45A02B72377143D009DB593 /* SceneDelegate.swift in Sources */,
 				B45A02D0237892EB009DB593 /* Constants.swift in Sources */,
